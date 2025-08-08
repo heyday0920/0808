@@ -1,74 +1,58 @@
 package com.example.myapplication
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
+import kotlinx.coroutines.tasks.await
 
-class StoreRepository {
-    private val db = FirebaseFirestore.getInstance()
+class StoreRepository(private val db: FirebaseFirestore) {
+
     private val storesCollection = db.collection("stores")
 
-    fun getStores(onSuccess: (List<Store>) -> Unit, onError: (Exception) -> Unit) {
-        storesCollection
-            .get()
-            .addOnSuccessListener { documents ->
-                try {
-                    val stores = documents.toObjects<Store>()
-                    onSuccess(stores)
-                } catch (e: Exception) {
-                    onError(e)
-                }
-            }
-            .addOnFailureListener { exception ->
-                onError(exception)
-            }
+    suspend fun getStores(): List<Store> {
+        return try {
+            val documents = storesCollection.get().await()
+            documents.toObjects()
+        } catch (e: Exception) {
+            // In a real app, you might want to re-throw a custom exception
+            // or handle it more gracefully.
+            android.util.Log.e("StoreRepository", "Error getting stores", e)
+            emptyList()
+        }
     }
 
-    fun getStoresByCategory(category: String, onSuccess: (List<Store>) -> Unit, onError: (Exception) -> Unit) {
-        storesCollection
-            .whereEqualTo("category", category)
-            .get()
-            .addOnSuccessListener { documents ->
-                try {
-                    val stores = documents.toObjects<Store>()
-                    android.util.Log.d("StoreRepository", "Found ${stores.size} stores for category: $category")
-                    onSuccess(stores)
-                } catch (e: Exception) {
-                    android.util.Log.e("StoreRepository", "Error parsing documents: ${e.message}")
-                    onError(e)
-                }
-            }
-            .addOnFailureListener { exception ->
-                android.util.Log.e("StoreRepository", "Firebase query failed: ${exception.message}")
-                onError(exception)
-            }
+    suspend fun getStoresByCategory(category: String): List<Store> {
+        return try {
+            val documents = storesCollection
+                .whereEqualTo("category", category)
+                .get()
+                .await()
+            android.util.Log.d("StoreRepository", "Found ${documents.size()} stores for category: $category")
+            documents.toObjects()
+        } catch (e: Exception) {
+            android.util.Log.e("StoreRepository", "Error getting stores by category", e)
+            emptyList()
+        }
     }
 
-    fun getStoreById(storeId: String, onSuccess: (Store?) -> Unit, onError: (Exception) -> Unit) {
-        storesCollection
-            .document(storeId)
-            .get()
-            .addOnSuccessListener { document ->
-                try {
-                    val store = document.toObject(Store::class.java)
-                    onSuccess(store)
-                } catch (e: Exception) {
-                    onError(e)
-                }
-            }
-            .addOnFailureListener { exception ->
-                onError(exception)
-            }
+    suspend fun getStoreById(storeId: String): Store? {
+        return try {
+            val document = storesCollection
+                .document(storeId)
+                .get()
+                .await()
+            document.toObject(Store::class.java)
+        } catch (e: Exception) {
+            android.util.Log.e("StoreRepository", "Error getting store by ID", e)
+            null
+        }
     }
 
-    fun addStore(store: Store, onSuccess: () -> Unit, onError: (Exception) -> Unit) {
-        storesCollection
-            .add(store)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener { exception ->
-                onError(exception)
-            }
+    suspend fun addStore(store: Store) {
+        try {
+            storesCollection.add(store).await()
+        } catch (e: Exception) {
+            android.util.Log.e("StoreRepository", "Error adding store", e)
+            // Handle error, maybe rethrow as a custom exception
+        }
     }
-} 
+}
