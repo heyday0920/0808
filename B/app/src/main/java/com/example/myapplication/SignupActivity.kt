@@ -2,61 +2,63 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.databinding.ActivitySignupBinding
+import io.github.jan.supabase.gotrue.gotrue
 
 class SignupActivity : AppCompatActivity() {
-    
-    private lateinit var appleSignupButton: Button
-    private lateinit var lineSignupButton: Button
-    private lateinit var emailSignupButton: Button
-    private lateinit var helpLink: TextView
-    
+
+    private lateinit var binding: ActivitySignupBinding
+    private val viewModel: AuthViewModel by viewModels {
+        AuthViewModelFactory(AuthRepository(Supabase.client.gotrue))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        android.util.Log.d("SignupActivity", "onCreate called")
-        setContentView(R.layout.activity_signup)
-        
-        initializeViews()
+        binding = ActivitySignupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupClickListeners()
+        setupObservers()
     }
-    
-    private fun initializeViews() {
-        appleSignupButton = findViewById(R.id.appleSignupButton)
-        lineSignupButton = findViewById(R.id.lineSignupButton)
-        emailSignupButton = findViewById(R.id.emailSignupButton)
-        helpLink = findViewById(R.id.helpLink)
-    }
-    
+
     private fun setupClickListeners() {
-        // Apple Sign Up Button
-        appleSignupButton.setOnClickListener {
-            android.util.Log.d("SignupActivity", "Apple signup button clicked")
-            val intent = Intent(this, UserInfoActivity::class.java)
-            startActivity(intent)
+        binding.signupButton.setOnClickListener {
+            val email = binding.emailEditText.text.toString()
+            val password = binding.passwordEditText.text.toString()
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                viewModel.signUp(email, password)
+            } else {
+                Toast.makeText(this, "メールアドレスとパスワードを入力してください", Toast.LENGTH_SHORT).show()
+            }
         }
-        
-        // LINE Sign Up Button
-        lineSignupButton.setOnClickListener {
-            android.util.Log.d("SignupActivity", "LINE signup button clicked")
-            val intent = Intent(this, UserInfoActivity::class.java)
-            startActivity(intent)
+
+        binding.goToLoginTextView.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish() // Finish signup activity to prevent going back to it
         }
-        
-        // Email Sign Up Button
-        emailSignupButton.setOnClickListener {
-            android.util.Log.d("SignupActivity", "Email signup button clicked")
-            val intent = Intent(this, UserInfoActivity::class.java)
-            startActivity(intent)
+
+        // Keep social buttons for UI, but they are not functional
+        binding.appleSignupButton.setOnClickListener {
+            Toast.makeText(this, "Appleでのサインアップは現在実装中です", Toast.LENGTH_SHORT).show()
         }
-        
-        // Help Link
-        helpLink.setOnClickListener {
-            android.util.Log.d("SignupActivity", "Help link clicked")
-            Toast.makeText(this, "ヘルプ・よくある質問を開きます", Toast.LENGTH_SHORT).show()
-            // ここでヘルプ画面を開く処理を実装
+        binding.lineSignupButton.setOnClickListener {
+            Toast.makeText(this, "LINEでのサインアップは現在実装中です", Toast.LENGTH_SHORT).show()
         }
     }
-} 
+
+    private fun setupObservers() {
+        viewModel.authResult.observe(this) { success ->
+            if (success) {
+                Toast.makeText(this, "サインアップ成功。ログインしてください。", Toast.LENGTH_LONG).show()
+                // Navigate to login screen after successful signup
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(this, "サインアップに失敗しました", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}

@@ -25,7 +25,6 @@ class TopActivity : AppCompatActivity() {
     
     private val viewModel: TopViewModel by viewModels {
         TopViewModelFactory(
-            PractitionerRepository(Firebase.firestore),
             RecentPractitionersRepository(
                 getSharedPreferences("recent_practitioners", MODE_PRIVATE),
                 Gson()

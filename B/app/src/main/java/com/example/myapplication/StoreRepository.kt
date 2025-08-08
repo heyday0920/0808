@@ -1,20 +1,14 @@
 package com.example.myapplication
 
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.toObjects
-import kotlinx.coroutines.tasks.await
+import io.github.jan.supabase.postgrest.Postgrest
+import io.github.jan.supabase.postgrest.query.FilterOperator
 
-class StoreRepository(private val db: FirebaseFirestore) {
-
-    private val storesCollection = db.collection("stores")
+class StoreRepository(private val postgrest: Postgrest) {
 
     suspend fun getStores(): List<Store> {
         return try {
-            val documents = storesCollection.get().await()
-            documents.toObjects()
+            postgrest.from("stores").select().decodeList()
         } catch (e: Exception) {
-            // In a real app, you might want to re-throw a custom exception
-            // or handle it more gracefully.
             android.util.Log.e("StoreRepository", "Error getting stores", e)
             emptyList()
         }
@@ -22,12 +16,11 @@ class StoreRepository(private val db: FirebaseFirestore) {
 
     suspend fun getStoresByCategory(category: String): List<Store> {
         return try {
-            val documents = storesCollection
-                .whereEqualTo("category", category)
-                .get()
-                .await()
-            android.util.Log.d("StoreRepository", "Found ${documents.size()} stores for category: $category")
-            documents.toObjects()
+            postgrest.from("stores")
+                .select {
+                    filter("category", FilterOperator.EQ, category)
+                }
+                .decodeList()
         } catch (e: Exception) {
             android.util.Log.e("StoreRepository", "Error getting stores by category", e)
             emptyList()
@@ -36,11 +29,11 @@ class StoreRepository(private val db: FirebaseFirestore) {
 
     suspend fun getStoreById(storeId: String): Store? {
         return try {
-            val document = storesCollection
-                .document(storeId)
-                .get()
-                .await()
-            document.toObject(Store::class.java)
+            postgrest.from("stores")
+                .select {
+                    filter("id", FilterOperator.EQ, storeId)
+                }
+                .decodeSingleOrNull()
         } catch (e: Exception) {
             android.util.Log.e("StoreRepository", "Error getting store by ID", e)
             null
@@ -49,10 +42,9 @@ class StoreRepository(private val db: FirebaseFirestore) {
 
     suspend fun addStore(store: Store) {
         try {
-            storesCollection.add(store).await()
+            postgrest.from("stores").insert(store)
         } catch (e: Exception) {
             android.util.Log.e("StoreRepository", "Error adding store", e)
-            // Handle error, maybe rethrow as a custom exception
         }
     }
 }

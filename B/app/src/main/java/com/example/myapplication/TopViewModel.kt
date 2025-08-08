@@ -9,7 +9,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
 
 class TopViewModel(
-    private val practitionerRepository: PractitionerRepository,
     private val recentPractitionersRepository: RecentPractitionersRepository
 ) : ViewModel() {
 
@@ -44,13 +43,12 @@ class TopViewModel(
 }
 
 class TopViewModelFactory(
-    private val practitionerRepository: PractitionerRepository,
     private val recentPractitionersRepository: RecentPractitionersRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(TopViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return TopViewModel(practitionerRepository, recentPractitionersRepository) as T
+            return TopViewModel(recentPractitionersRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

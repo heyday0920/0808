@@ -17,7 +17,4 @@ data class Store(
     val access: String = "",
     val address: String = "",
     val station: String = ""
-) {
-    // Firestoreで使用するためのコンストラクタ
-    constructor() : this("", "", "", 0.0, 0, emptyList(), "", "", "", "", "", "", "", "", "", "")
-} 
+)
