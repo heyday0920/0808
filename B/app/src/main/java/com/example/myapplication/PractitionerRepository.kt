@@ -1,17 +1,13 @@
 package com.example.myapplication
 
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.toObjects
-import kotlinx.coroutines.tasks.await
+import io.github.jan.supabase.postgrest.Postgrest
+import io.github.jan.supabase.postgrest.query.FilterOperator
 
-class PractitionerRepository(private val db: FirebaseFirestore) {
-
-    private val practitionersCollection = db.collection("practitioners")
+class PractitionerRepository(private val postgrest: Postgrest) {
 
     suspend fun getPractitioners(): List<Practitioner> {
         return try {
-            val documents = practitionersCollection.get().await()
-            documents.toObjects()
+            postgrest.from("practitioners").select().decodeList()
         } catch (e: Exception) {
             android.util.Log.e("PractitionerRepository", "Error getting practitioners", e)
             emptyList()
@@ -20,12 +16,11 @@ class PractitionerRepository(private val db: FirebaseFirestore) {
 
     suspend fun getPractitionersByCategory(category: String): List<Practitioner> {
         return try {
-            val documents = practitionersCollection
-                .whereEqualTo("category", category)
-                .get()
-                .await()
-            android.util.Log.d("PractitionerRepository", "Found ${documents.size()} practitioners for category: $category")
-            documents.toObjects()
+            postgrest.from("practitioners")
+                .select {
+                    filter("category", FilterOperator.EQ, category)
+                }
+                .decodeList()
         } catch (e: Exception) {
             android.util.Log.e("PractitionerRepository", "Error getting practitioners by category", e)
             emptyList()
@@ -34,11 +29,11 @@ class PractitionerRepository(private val db: FirebaseFirestore) {
 
     suspend fun getPractitionerById(practitionerId: String): Practitioner? {
         return try {
-            val document = practitionersCollection
-                .document(practitionerId)
-                .get()
-                .await()
-            document.toObject(Practitioner::class.java)
+            postgrest.from("practitioners")
+                .select {
+                    filter("id", FilterOperator.EQ, practitionerId)
+                }
+                .decodeSingleOrNull()
         } catch (e: Exception) {
             android.util.Log.e("PractitionerRepository", "Error getting practitioner by ID", e)
             null
@@ -47,10 +42,9 @@ class PractitionerRepository(private val db: FirebaseFirestore) {
 
     suspend fun addPractitioner(practitioner: Practitioner) {
         try {
-            practitionersCollection.add(practitioner).await()
+            postgrest.from("practitioners").insert(practitioner)
         } catch (e: Exception) {
             android.util.Log.e("PractitionerRepository", "Error adding practitioner", e)
-            // Handle error
         }
     }
 } 

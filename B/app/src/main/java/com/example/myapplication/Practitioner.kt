@@ -23,7 +23,4 @@ data class Practitioner(
     val description: String = "",
     val category: String = "",
     val storeName: String = ""
-) {
-    // Firestoreで使用するためのコンストラクタ
-    constructor() : this("", "", "", "", 0.0, 0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
-} 
+)
