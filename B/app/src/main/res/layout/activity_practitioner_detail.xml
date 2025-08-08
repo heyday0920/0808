@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_main">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <include layout="@layout/include_header" />
+
+            <!-- Profile/Store Info Tab -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/background_white"
+                android:elevation="1dp">
+                
+                <TextView
+                    android:id="@+id/tab_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="プロフィール"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:paddingVertical="16dp"
+                    android:gravity="center"
+                    android:background="@color/primary_purple_light"/>
+                
+                <TextView
+                    android:id="@+id/tab_store_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="店舗情報"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="16sp"
+                    android:paddingVertical="16dp"
+            android:gravity="center"
+                    android:background="@color/background_white"
+                    android:clickable="true"
+                    android:focusable="true"/>
+    </LinearLayout>
+
+            <!-- Practitioner Info Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="@color/background_white"
+                android:gravity="center_vertical">
+
+                <!-- Profile Image -->
+                <ImageView
+                    android:id="@+id/practitionerImage"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/circle_background"
+                    android:src="@color/background_card"
+                    android:layout_marginEnd="16dp"/>
+
+                <!-- Name and Rating -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+        <TextView
+                        android:id="@+id/practitionerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                        android:text="Emma myers(リラク 新宿東横店内)"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+            android:textStyle="bold"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Star Rating -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="★★★★"
+                            android:textColor="@color/star_active"
+                            android:textSize="14sp"/>
+
+        <TextView
+                            android:id="@+id/practitionerRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 4.0"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Chat Button -->
+                <LinearLayout
+                    android:id="@+id/chatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+            android:clickable="true"
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chat"
+                        android:tint="@color/text_secondary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                        android:text="チャットで相談する"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="10sp"
+                        android:layout_marginTop="2dp"/>
+
+                </LinearLayout>
+
+    </LinearLayout>
+
+            <!-- Gallery Tabs -->
+            <LinearLayout
+                android:id="@+id/gallery_tabs_section"
+        android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_white"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                
+                <Button
+                    android:id="@+id/gallery_plan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="プラン"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_button_primary"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"/>
+                
+                <Button
+                    android:id="@+id/gallery_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="レビュー(403)"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:background="@drawable/tag_background"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"/>
+                
+                <Button
+                    android:id="@+id/gallery_before_after"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="ビフォーアフター"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:background="@drawable/tag_background"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"/>
+                
+                <Button
+                    android:id="@+id/gallery_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="プロフィール"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:background="@drawable/tag_background"
+                    android:paddingHorizontal="12dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"/>
+            </LinearLayout>
+
+            <!-- Image Gallery -->
+            <LinearLayout
+                android:id="@+id/image_gallery_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/background_white"
+                android:padding="16dp">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/rounded_image_bg"
+                        android:src="@color/background_card"/>
+
+                    <!-- Play button overlay -->
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_spa"
+                        android:background="@drawable/play_button_bg"
+                        android:padding="10dp"
+                        android:tint="@color/white"/>
+
+                </FrameLayout>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/rounded_image_bg"
+                    android:src="@color/background_card"/>
+
+            </LinearLayout>
+
+            <!-- Reservation Button -->
+            <LinearLayout
+                android:id="@+id/reservation_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_white"
+                android:padding="16dp">
+
+                <Button
+                    android:id="@+id/reservationButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="空席確認・予約"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_primary"
+                    android:elevation="0dp"/>
+
+            </LinearLayout>
+
+            <!-- Treatment Plans Section -->
+            <LinearLayout
+                android:id="@+id/treatment_plans_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/background_white"
+                android:layout_marginTop="8dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="施術プラン"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+
+                            <!-- Plan Card -->
+            <LinearLayout
+                android:id="@+id/planCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_card"
+                android:padding="16dp"
+                android:elevation="1dp"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/rounded_image_bg"
+                        android:src="@color/background_card"
+                        android:layout_marginEnd="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="クイックボディケア"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30分　首・肩・首の悩み解消ケア"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¥3,300"
+                            android:textColor="@color/primary_purple"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- プラン詳細展開エリア -->
+                <LinearLayout
+                    android:id="@+id/planDetailContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_background"
+                    android:layout_margin="8dp"
+                    android:padding="16dp"
+                    android:visibility="gone">
+
+                    <!-- 施術内容画像 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:src="@color/background_card"
+                            android:background="@drawable/rounded_image_bg"
+                            android:scaleType="centerCrop"
+                            android:layout_marginEnd="4dp" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:src="@color/background_card"
+                            android:background="@drawable/rounded_image_bg"
+                            android:scaleType="centerCrop"
+                            android:layout_marginStart="4dp" />
+
+                    </LinearLayout>
+
+                    <!-- プラン詳細情報 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:text="クイックボディケア"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="#222222"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:text="30分　肩・首・背中の悩み解消ケア"
+                            android:textColor="#666666"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:text="￥3,300"
+                            android:textColor="#7C3AED"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- プラン詳細説明 -->
+                        <TextView
+                            android:text="詳細"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="#222222"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:text="肩こりや首の疲れ、背中の張りを集中的にケアする30分間の施術です。デスクワークで溜まった疲労を効果的に解消し、血行を促進して筋肉の緊張をほぐします。短時間で効果を実感できる人気のメニューです。"
+                            android:textColor="#666666"
+                            android:textSize="14sp"
+                            android:lineSpacingExtra="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <!-- アクションボタン -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/menuDetailButton"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:text="メニュー詳細"
+                            android:textColor="#666666"
+                            android:textSize="14sp"
+                            android:background="@drawable/button_outline_background"
+                            android:layout_marginEnd="8dp" />
+
+                        <Button
+                            android:id="@+id/menuReservationButton"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:text="このメニューを予約"
+                            android:textColor="@color/text_white"
+                            android:textSize="14sp"
+                            android:background="@drawable/bg_button_primary"
+                            android:layout_marginStart="8dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <include layout="@layout/bottom_navigation" />
+
+</LinearLayout> 

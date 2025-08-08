@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_main">
+
+    <!-- Header -->
+    <include layout="@layout/include_header" />
+
+    <!-- Search Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="12dp"
+        android:padding="8dp"
+        android:background="@drawable/bg_search_box"
+        android:gravity="center_vertical"
+        android:elevation="1dp">
+        
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_search"
+            android:tint="@color/text_hint"
+            android:layout_marginEnd="8dp"/>
+        
+        <EditText
+            android:id="@+id/search_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="8月16日/15:00-18:00/恵比寿/エステ/顔身"
+            android:textColorHint="@color/text_hint"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <!-- Filter Tags -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:layout_marginBottom="4dp">
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            
+            <Button
+                android:id="@+id/filter_reviews"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="レビューの多い順"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_button_primary"
+                android:paddingHorizontal="8dp"
+                android:layout_marginEnd="4dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"/>
+            
+            <Button
+                android:id="@+id/filter_price_high"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="価格の高い順"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:background="@drawable/tag_background"
+                android:paddingHorizontal="8dp"
+                android:layout_marginEnd="4dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"/>
+            
+            <Button
+                android:id="@+id/filter_price_low"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="価格の低い順"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:background="@drawable/tag_background"
+                android:paddingHorizontal="8dp"
+                android:layout_marginEnd="4dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"/>
+            
+            <Button
+                android:id="@+id/filter_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="評価の高い順"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:background="@drawable/tag_background"
+                android:paddingHorizontal="8dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Tab Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/background_white"
+        android:elevation="1dp">
+        
+        <TextView
+            android:id="@+id/tab_practitioner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="施術者一覧"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:paddingVertical="16dp"
+            android:gravity="center"
+            android:background="@color/primary_purple_light"/>
+        
+        <TextView
+            android:id="@+id/tab_store"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="店舗一覧"
+            android:textStyle="bold"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:paddingVertical="16dp"
+            android:gravity="center"
+            android:background="@color/background_white"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <!-- Practitioners List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/practitionerRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false"/>
+
+    <!-- Bottom Navigation -->
+    <include layout="@layout/bottom_navigation" />
+
+</LinearLayout> 

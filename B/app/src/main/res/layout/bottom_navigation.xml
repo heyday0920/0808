@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="horizontal"
+    android:background="@color/background_white"
+    android:elevation="8dp">
+
+    <!-- 虫眼鏡アイコン（検索） -->
+    <LinearLayout
+        android:id="@+id/bottom_search"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_search"
+            android:tint="@color/text_secondary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="検索"
+            android:textSize="10sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+    <!-- 正方形アイコン（ホーム/メイン） -->
+    <LinearLayout
+        android:id="@+id/bottom_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_spa"
+            android:tint="@color/primary_purple"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ホーム"
+            android:textSize="10sp"
+            android:textColor="@color/primary_purple"
+            android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+    <!-- チャットアイコン -->
+    <LinearLayout
+        android:id="@+id/bottom_chat"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_chat"
+            android:tint="@color/text_secondary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="チャット"
+            android:textSize="10sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+    <!-- 人の形アイコン（プロフィール） -->
+    <LinearLayout
+        android:id="@+id/bottom_profile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_person"
+            android:tint="@color/text_secondary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="プロフィール"
+            android:textSize="10sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+</LinearLayout> 

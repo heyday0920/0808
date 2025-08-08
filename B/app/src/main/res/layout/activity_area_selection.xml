@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_white">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/primary_purple_light"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <!-- Close Button -->
+        <ImageView
+            android:id="@+id/close_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/text_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="閉じる" />
+
+        <!-- Title -->
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+            android:text="エリア選択"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium" />
+
+        <!-- Spacer for balance -->
+        <View
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Search Box -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_search_box"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    android:tint="@color/text_hint"
+                    android:layout_marginEnd="8dp" />
+
+                <EditText
+                    android:id="@+id/search_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="全国のエリア名・駅名を検索"
+                    android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch" />
+
+            </LinearLayout>
+
+            <!-- 詳細 Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="詳細"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@color/primary_purple_light"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:layout_marginBottom="1dp" />
+
+            <!-- エリアを選ぶ -->
+            <TextView
+                android:id="@+id/select_area_option"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="エリアを選ぶ"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="1dp" />
+
+            <!-- 駅を選ぶ -->
+            <TextView
+                android:id="@+id/select_station_option"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="駅を選ぶ"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="1dp" />
+
+            <!-- 現在地周辺 -->
+            <TextView
+                android:id="@+id/current_location_option"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="現在地周辺"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="1dp" />
+
+            <!-- 指定しない -->
+            <TextView
+                android:id="@+id/no_specification_option"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="指定しない"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="24dp" />
+
+            <!-- 履歴 Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="履歴"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@color/primary_purple_light"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:layout_marginBottom="1dp" />
+
+            <!-- 履歴コンテナ (必要に応じて動的にアイテムを追加) -->
+            <LinearLayout
+                android:id="@+id/history_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 履歴アイテムはここに動的に追加 -->
+
+            </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/background_white">
+
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="クリア"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:background="@drawable/button_outline_background"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/done_button"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="2"
+            android:text="完了（3件）"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_button_primary"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout> 

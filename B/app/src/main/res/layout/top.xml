@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_main">
+
+    <!-- Header -->
+    <include layout="@layout/include_header" />
+
+    <!-- Main Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Search Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_search_box"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp"
+                android:layout_margin="16dp"
+                android:layout_marginBottom="16dp">
+
+                <EditText
+                    android:id="@+id/search_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="店舗名・キーワードを入力"
+                    android:textColorHint="@color/text_hint"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:background="@android:color/transparent"
+                    android:inputType="text" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_search"
+                    android:background="@drawable/bg_search_icon"
+                    android:tint="@color/text_white"
+                    android:padding="6dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!-- Search Filter Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:layout_marginHorizontal="16dp"
+                android:padding="20dp"
+                android:elevation="2dp">
+
+                <!-- Menu Details -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="メニュー・詳細条件"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Menu Selector -->
+                <TextView
+                    android:id="@+id/menu_selector"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="未指定"
+                    android:textColor="@color/text_hint"
+                    android:textSize="14sp"
+                    android:background="@drawable/bg_search_box"
+                    android:gravity="center_vertical"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Date and Area Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_calendar"
+                                android:tint="@color/text_primary"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="日時"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/date_selector"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="未指定"
+                            android:textColor="@color/text_hint"
+                            android:textSize="14sp"
+                            android:background="@drawable/bg_search_box"
+                            android:gravity="center_vertical"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_train"
+                                android:tint="@color/text_primary"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="エリア・駅"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/area_selector"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="未指定"
+                            android:textColor="@color/text_hint"
+                            android:textSize="14sp"
+                            android:background="@drawable/bg_search_box"
+                            android:gravity="center_vertical"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Search Button -->
+                <Button
+                    android:id="@+id/search_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="検索"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_primary"
+                    android:elevation="0dp" />
+
+            </LinearLayout>
+
+
+
+            <!-- Category Grid (2x3) -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="24dp">
+
+                <!-- エステ -->
+                <Button
+                    android:id="@+id/category_esthe"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="エステ"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_esthe"
+                    android:gravity="center" />
+
+                <!-- ヨガ -->
+                <Button
+                    android:id="@+id/category_yoga"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="ヨガ"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_yoga"
+                    android:gravity="center" />
+
+                <!-- ネイル -->
+                <Button
+                    android:id="@+id/category_nail"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="ネイル"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_nail"
+                    android:gravity="center" />
+
+                <!-- フェイシャル -->
+                <Button
+                    android:id="@+id/category_facial"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="フェイシャル"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_facial"
+                    android:gravity="center" />
+
+                <!-- まつげ -->
+                <Button
+                    android:id="@+id/category_eyelash"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="まつげ"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_eyelash"
+                    android:gravity="center" />
+
+                <!-- 脱毛 -->
+                <Button
+                    android:id="@+id/category_hair_removal"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="脱毛"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_hair_removal"
+                    android:gravity="center" />
+
+            </GridLayout>
+
+            <!-- Recently Checked -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最近チェックしたエスティシャン"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Recent Practitioners Horizontal Scroll -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:id="@+id/recent_practitioners_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <!-- Practitioner 1 -->
+                    <LinearLayout
+                        android:id="@+id/recent_practitioner_1"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:id="@+id/practitioner_image_1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@color/background_card"
+                            android:background="@drawable/circle_background"
+                            android:scaleType="centerCrop"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/practitioner_name_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Emma"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <!-- Practitioner 2 -->
+                    <LinearLayout
+                        android:id="@+id/recent_practitioner_2"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:id="@+id/practitioner_image_2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@color/background_card"
+                            android:background="@drawable/circle_background"
+                            android:scaleType="centerCrop"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/practitioner_name_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Maya"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <!-- Practitioner 3 -->
+                    <LinearLayout
+                        android:id="@+id/recent_practitioner_3"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:id="@+id/practitioner_image_3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@color/background_card"
+                            android:background="@drawable/circle_background"
+                            android:scaleType="centerCrop"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/practitioner_name_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sofia"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <!-- Practitioner 4 -->
+                    <LinearLayout
+                        android:id="@+id/recent_practitioner_4"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:id="@+id/practitioner_image_4"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@color/background_card"
+                            android:background="@drawable/circle_background"
+                            android:scaleType="centerCrop"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/practitioner_name_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lisa"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <!-- Practitioner 5 -->
+                    <LinearLayout
+                        android:id="@+id/recent_practitioner_5"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:id="@+id/practitioner_image_5"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@color/background_card"
+                            android:background="@drawable/circle_background"
+                            android:scaleType="centerCrop"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/practitioner_name_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Anna"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <include layout="@layout/bottom_navigation" />
+
+</LinearLayout>

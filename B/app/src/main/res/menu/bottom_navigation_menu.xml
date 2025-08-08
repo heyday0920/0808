@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_search"
+        android:title="検索" />
+    
+    <item
+        android:id="@+id/nav_new"
+        android:icon="@drawable/ic_notifications"
+        android:title="NEW" />
+    
+    <item
+        android:id="@+id/nav_favorite"
+        android:icon="@drawable/ic_favorite"
+        android:title="お気に入り" />
+    
+    <item
+        android:id="@+id/nav_mypage"
+        android:icon="@drawable/ic_my_location"
+        android:title="マイページ" />
+</menu> 

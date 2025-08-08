@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- ヘッダー -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#E9E0F7"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+        
+        <ImageView
+            android:id="@+id/menu_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_sort_alphabetically"
+            android:tint="#222222"/>
+        
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Beauvidual"
+            android:textColor="#222222"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- 検索バー -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical">
+        
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:tint="#888888"
+            android:layout_marginEnd="8dp"/>
+        
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="8月16日/15:00-18:00/恵比寿/エステ/個室"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:background="@drawable/search_box_bg"
+            android:padding="12dp"/>
+    </LinearLayout>
+
+    <!-- フィルターボタン -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="#FFFFFF">
+        
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            
+            <Button 
+                android:text="レビューの多い順" 
+                android:textSize="11sp" 
+                android:background="@drawable/tab_background_active"
+                android:textColor="#7C3AED" 
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"/>
+            
+            <Button 
+                android:text="評価の高い順" 
+                android:textSize="11sp" 
+                android:background="@drawable/tab_background_inactive"
+                android:textColor="#A084CA" 
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"/>
+            
+            <Button 
+                android:text="施設の安い順" 
+                android:textSize="11sp" 
+                android:background="@drawable/tab_background_inactive"
+                android:textColor="#A084CA" 
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"/>
+            
+            <Button 
+                android:text="施設の高い順" 
+                android:textSize="11sp" 
+                android:background="@drawable/tab_background_inactive"
+                android:textColor="#A084CA"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- タブ -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="#FFFFFF">
+        
+        <TextView
+            android:id="@+id/tab_practitioner"
+            android:text="施術者一覧"
+            android:textStyle="bold"
+            android:textColor="#888"
+            android:background="#FFF"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        <TextView
+            android:id="@+id/tab_store"
+            android:text="店舗一覧"
+            android:textStyle="bold"
+            android:textColor="#7C3AED"
+            android:background="#E9E0F7"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#F5F5F5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 店舗カード -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="2dp">
+
+                <!-- 店舗タグと評価 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    
+                    <!-- タグ行 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+                        
+                        <TextView
+                            android:text="AFAISE"
+                            android:textSize="10sp"
+                            android:textColor="#FFFFFF"
+                            android:background="#7C3AED"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        
+                        <TextView
+                            android:text="日本エステティック協会認定"
+                            android:textSize="10sp"
+                            android:textColor="#7C3AED"
+                            android:background="#E9E0F7"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    
+                    <!-- 評価と情報行 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            
+                            <TextView
+                                android:text="★ 4.0 (403)"
+                                android:textColor="#F7B801"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="16dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            
+                            <TextView
+                                android:text="営業時間:10時まで"
+                                android:textColor="#666666"
+                                android:textSize="12sp"
+                                android:layout_marginEnd="16dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            
+                            <TextView
+                                android:text="最寄り:池袋 5分"
+                                android:textColor="#666666"
+                                android:textSize="12sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 店舗名とアイコン -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        android:background="@drawable/circle_background"
+                        android:layout_marginEnd="12dp"/>
+                    
+                    <TextView
+                        android:text="リララ 新宿東南口店"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#222222"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!-- 画像ギャラリー -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:orientation="horizontal">
+                        
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@android:drawable/ic_menu_gallery"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/rounded_image_bg"
+                            android:layout_marginEnd="4dp"/>
+                        
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@android:drawable/ic_menu_gallery"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/rounded_image_bg"
+                            android:layout_marginEnd="4dp"/>
+                        
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@android:drawable/ic_menu_gallery"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/rounded_image_bg"/>
+                    </LinearLayout>
+                    
+                    <!-- ページインジケーター -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/indicator_active"
+                            android:layout_margin="4dp"/>
+                        
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/indicator_inactive"
+                            android:layout_margin="4dp"/>
+                        
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/indicator_inactive"
+                            android:layout_margin="4dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- プランセクション -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+                        
+                        <TextView
+                            android:text="施設プラン"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#222222"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"/>
+                        
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@android:drawable/ic_menu_agenda"
+                            android:tint="#666666"/>
+                        
+                        <TextView
+                            android:text="ダブルアリーフェイシャルエステ 60分"
+                            android:textSize="12sp"
+                            android:textColor="#222222"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        
+                        <TextView
+                            android:text="9800円"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#222222"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        
+                        <TextView
+                            android:text="もっと見る"
+                            android:textSize="12sp"
+                            android:textColor="#7C3AED"
+                            android:layout_marginStart="12dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- レビューセクション -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    
+                    <!-- レビュータグ -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+                        
+                        <TextView
+                            android:text="AFAISE"
+                            android:textSize="10sp"
+                            android:textColor="#FFFFFF"
+                            android:background="#7C3AED"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        
+                        <TextView
+                            android:text="日本エステティック協会認定"
+                            android:textSize="10sp"
+                            android:textColor="#7C3AED"
+                            android:background="#E9E0F7"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    
+                    <!-- レビュー評価 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_myplaces"
+                            android:background="@drawable/circle_background"
+                            android:layout_marginEnd="8dp"/>
+                        
+                        <TextView
+                            android:text="★ 4.0 (403)"
+                            android:textColor="#F7B801"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginEnd="16dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        
+                        <TextView
+                            android:text="営業時間:10時まで"
+                            android:textColor="#666666"
+                            android:textSize="12sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ボトムナビゲーション -->
+    <include layout="@layout/bottom_navigation" />
+
+</LinearLayout> 

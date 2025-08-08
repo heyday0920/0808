@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_main">
+
+    <!-- Header -->
+    <include layout="@layout/include_header" />
+
+    <!-- Tab Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/background_white"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/messages_tab"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="メッセージ"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+    android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/calendar_tab"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="予約カレンダー"
+            android:textColor="@color/primary_purple"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"/>
+
+    </LinearLayout>
+
+    <!-- Tab Underline -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary_purple"/>
+
+    <!-- Calendar Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/background_white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Date Range -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7月20日-8月20日"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Calendar Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- Month Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+                    android:text="February"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+        android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Days of Week -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Mo"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tu"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="We"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Th"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Fr"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sa"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Su"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <!-- Calendar Grid -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="7"
+                    android:rowCount="6">
+
+                    <!-- Week 1 -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text=""
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="1"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="2"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="3"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="4"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="5"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="6"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <!-- Week 2 -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="7"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="8"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="9"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="10"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="11"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="12"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="13"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <!-- Week 3 -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="14"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="15"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="16"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="17"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="18"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="19"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="20"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <!-- Week 4 -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="21"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="22"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="23"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="24"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="25"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="26"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="27"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <!-- Week 5 -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="28"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="1"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="2"
+                        android:textColor="@color/primary_purple"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/primary_purple_light"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="3"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="4"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="5"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_columnWeight="1"
+                        android:text="6"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center"/>
+
+                </GridLayout>
+
+            </LinearLayout>
+
+            <!-- Reservation List -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="16dp">
+
+                <!-- Reservation Item -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7月23日14:30~15:30 新宿 まつげサロン山田"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:paddingVertical="12dp"
+                    android:background="@drawable/bg_search_box"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Empty lines for more reservations -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light"
+                    android:layout_marginBottom="8dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light"
+                    android:layout_marginBottom="8dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light"
+                    android:layout_marginBottom="8dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light"
+                    android:layout_marginBottom="8dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <include layout="@layout/bottom_navigation" />
+
+</LinearLayout> 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "394906291041",
+    "project_id": "beauvidiual-store",
+    "storage_bucket": "beauvidiual-store.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394906291041:android:7df1f674dc70d7f8e61320",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJd8bSw4g5lRvm18tGTQ9VuXn29BqMggA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

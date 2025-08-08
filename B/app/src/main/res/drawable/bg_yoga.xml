@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景画像 -->
+    <item>
+        <bitmap
+            android:src="@drawable/yoga_pic"
+            android:gravity="fill" />
+    </item>
+    <!-- 角丸マスク -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- テキストを読みやすくするオーバーレイ -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#80000000" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</layer-list> 
